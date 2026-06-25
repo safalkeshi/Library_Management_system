@@ -2,12 +2,19 @@ def main():
     print("--welcome to Library system--")
 
 def register_user():
-    # Note: Added a prompt reminder to type a space between name and password
-    name, password = input("Enter your name and password (separated by a space): ").split()
-    return [name,password]
+  while True:
+      try:
+          name =input("enter your name ")
+          password =input("enter your password ")
+          return name , password
+      except ValueError:
+           
+           
+           main()
 
-# Call main once at the start
-main()
+def after_completion():
+    while True:
+        exit
 
 library_files = ["DataScience_intro.pdf", "CyberSecurity_basics.pdf", "Linux_guide.md", "AccountingBasics.pdf"]
 registered_users = []
@@ -27,8 +34,8 @@ while True:
     elif choice == "2":
         # Placeholder for your login logic
         print("\n --Login---")
-        login_name =input("enter your username")
-        login_pass =input("enter your password :")
+        login_name =input("enter your username  ")
+        login_pass =input("enter your password :  ")
         access_granted = False
         for user in registered_users:
             if user[0] == login_name and user[1]==login_pass:
@@ -38,6 +45,7 @@ while True:
             print("\n Login Sucessfull! Accessing Librru Files...")
             for file in library_files:
                 print(f"- {file}")
+                after_completion()
         else:
             print("\n Invalid Username or password . Please Register First.")
 
